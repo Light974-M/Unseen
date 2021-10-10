@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4924906323625901968}
   - component: {fileID: 3588727645979693392}
   m_Layer: 0
-  m_Name: "cl\xE9"
+  m_Name: key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
