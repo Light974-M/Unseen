@@ -45,6 +45,8 @@ public class DoorOpen : MonoBehaviour
         openAnim.runtimeAnimatorController = null;
         openAnim.runtimeAnimatorController = Door;
         openAnim.enabled = true;
-        Destroy(keyObject);
+        /*keyObject.transform.position = new Vector3(0, 100000, 0);
+        keyObject.GetComponent<MeshRenderer>.enabled = false*/
+        keyObject.SetActive(false);
     }
 }

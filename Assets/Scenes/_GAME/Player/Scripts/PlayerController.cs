@@ -34,13 +34,24 @@ public class PlayerController : MonoBehaviour
     private LayerMask groundMask;
 
     bool isGrounded;
-    void Start()
+
+    public static GameObject nearestKeyAvailable;
+
+    [SerializeField]
+    private GameObject key110;
+
+    [SerializeField]
+    private GameObject key120;
+
+    void Awake()
     {
 
     }
 
     void Update()
     {
+        NearestKey();
+
         if (Input.GetAxis("Sprint") == 1)
         {
             speed = sprintSpeed;
@@ -73,6 +84,18 @@ public class PlayerController : MonoBehaviour
             }
             
             
+        }
+    }
+
+    public void NearestKey()
+    {
+        if(Vector3.Distance(transform.position, key110.transform.position) >= Vector3.Distance(transform.position, key120.transform.position))
+        {
+            nearestKeyAvailable = key120;
+        }
+        else
+        {
+            nearestKeyAvailable = key110;
         }
     }
 }

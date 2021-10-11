@@ -22,7 +22,7 @@ public class Grab : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -47,11 +47,14 @@ public class Grab : MonoBehaviour
                 {
                     if (Input.GetAxis("Action1") == 1)
                     {
-                        _keyState = true;
-                        transform.SetParent(PlayerMesh);
-                        transform.localPosition = new Vector3(0, 0, 1.3f);
-                        isGrabed = true;
-                        isInputDown = true;
+                        if(gameObject == PlayerController.nearestKeyAvailable)
+                        {
+                            _keyState = true;
+                            transform.SetParent(PlayerMesh);
+                            transform.localPosition = new Vector3(0, 0, 1.3f);
+                            isGrabed = true;
+                            isInputDown = true;
+                        }
                     }
                 }
             }
