@@ -5,7 +5,10 @@ using UnityEngine;
 public class CameraDetection : MonoBehaviour
 {
 
-//_______________________________SERIALIZED VARIABLES_________________________________
+    //_______________________________SERIALIZED VARIABLES_________________________________
+
+    [Header("CAMERA ZONE SET____________________________________________________________________________________________________")]
+    [Header("")]
 
     [SerializeField]
     [Tooltip("the first point that delimitate the zone where camera position is affected")]
@@ -15,9 +18,15 @@ public class CameraDetection : MonoBehaviour
     [Tooltip("the second point that delimitate the zone where camera position is affected")]
     private Transform B;
 
+    [Header("CAMERA POSITION____________________________________________________________________________________________________")]
+    [Header("")]
+
     [SerializeField]
     [Tooltip("the place where the camera will be placed in affected zone")]
     private Transform camPosition;
+
+    [Header("PLAYER DETECTOR____________________________________________________________________________________________________")]
+    [Header("")]
 
     [SerializeField]
     [Tooltip("the player that will be detected in zone")]

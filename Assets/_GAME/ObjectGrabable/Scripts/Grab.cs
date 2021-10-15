@@ -5,7 +5,10 @@ using UnityEngine;
 public class Grab : MonoBehaviour
 {
 
-//_______________________________SERIALIZED VARIABLES_________________________________
+    //_______________________________SERIALIZED VARIABLES_________________________________
+
+    [Header("GRAB LINK____________________________________________________________________________________________________")]
+    [Header("")]
 
     [SerializeField]
     [Tooltip("the player that will be detected for grab")]
@@ -19,7 +22,14 @@ public class Grab : MonoBehaviour
     [Tooltip("the place where the key will be parented")]
     private Transform PlayerMesh;
 
-//___________________________________PRIVATE VARIABLES________________________________
+    [Header("GRAB RANGE____________________________________________________________________________________________________")]
+    [Header("")]
+
+    [SerializeField]
+    [Tooltip("the player values for range of grab")]
+    private PlayerController PlayerGrab;
+
+    //___________________________________PRIVATE VARIABLES________________________________
 
     private bool isGrabed = false;
     private bool isInputDown = false;
@@ -29,9 +39,12 @@ public class Grab : MonoBehaviour
 
 //___________________________________AWAKE AND START________________________________
 
-    void Start()
+    void Awake()
     {
-
+        if(PlayerGrab == null)
+        {
+            PlayerGrab = Transform.FindObjectOfType<PlayerController>();
+        }
     }
 
 //_______________________________________UPDATER____________________________________
@@ -56,7 +69,7 @@ public class Grab : MonoBehaviour
             }
             else
             {
-                if (Vector3.Distance(transform.position, Player.position) < 2)
+                if (Vector3.Distance(transform.position, Player.position) < PlayerGrab.GrabRange)
                 {
                     if (Input.GetAxis("Action1") == 1)
                     {
@@ -86,7 +99,7 @@ public class Grab : MonoBehaviour
             {
                 if (Input.GetAxis("Action1") == 1)
                 {
-                    if(Vector3.Distance(transform.position, Door.position) > 2)
+                    if(Vector3.Distance(transform.position, Door.position) > PlayerGrab.GrabRange)
                     {
                         _keyState = false;
                         transform.SetParent(null);

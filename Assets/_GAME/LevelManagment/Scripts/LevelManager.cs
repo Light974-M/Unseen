@@ -6,11 +6,6 @@ public class LevelManager : MonoBehaviour
 {
     private bool isPause = false;
 
-    void Awake()
-    {
-        
-    }
-
     void Update()
     {
         PauseManager();

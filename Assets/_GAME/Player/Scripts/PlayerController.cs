@@ -7,17 +7,26 @@ public class PlayerController : MonoBehaviour
 
 //_______________________________SERIALIZED VARIABLES_________________________________
 
+    [Header(" MOVEMENTS_________________________________________________________________________________________________________________________________________________________")]
+    [Header("")]
+
     [SerializeField]
     [Tooltip("the camera used for reference to player movements")]
     private Transform cam;
 
     [SerializeField]
+    [Tooltip("the character control component")]
+    private CharacterController controller;
+
+    [Header(" ROTATIONS_________________________________________________________________________________________________________________________________________________________")]
+    [Header("")]
+
+    [SerializeField]
     [Tooltip("the mesh player that will be used for player rotation")]
     private Transform PlayerMesh;
 
-    [SerializeField]
-    [Tooltip("the character control component")]
-    private CharacterController controller;
+    [Header(" SPRINT_________________________________________________________________________________________________________________________________________________________")]
+    [Header("")]
 
     [SerializeField]
     [Tooltip("set the normal speed without sprinting")]
@@ -26,6 +35,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     [Tooltip("set the sprint speed value")]
     private float sprintSpeed;
+
+    [Header(" GRAVITY_____________________________________________________________________________________________________________________")]
+    [Header("")]
 
     [SerializeField]
     [Tooltip("set gravity strength")]
@@ -39,6 +51,9 @@ public class PlayerController : MonoBehaviour
     [Tooltip("set mask for the ground")]
     private LayerMask groundMask;
 
+    [Header(" FOOTSTEPS_________________________________________________________________________________________________________________________________________________________")]
+    [Header("")]
+
     [SerializeField]
     [Tooltip("set footsteps visibility's duration")]
     private float footStepDuration = 10;
@@ -47,6 +62,9 @@ public class PlayerController : MonoBehaviour
     [Tooltip("object that will be instantiate for footsteps texture")]
     private GameObject FootSteps;
 
+    [Header(" RAIN/LIGHT_________________________________________________________________________________________________________________________________________________________")]
+    [Header("")]
+
     [SerializeField]
     [Tooltip("material under rain")]
     private Material PlayerMatInvisible;
@@ -54,6 +72,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     [Tooltip("material without rain")]
     private Material PlayerMaterial;
+
+    [Header(" GRAB_________________________________________________________________________________________________________________________________________________________")]
+    [Header("")]
+
+    [SerializeField]
+    [Tooltip("the range min to grab objects")]
+    private float _grabRange = 4;      public float GrabRange => _grabRange;
+
+    [SerializeField]
+    [Tooltip("the range min to open door")]
+    private float _doorRange = 4;      public float DoorRange => _doorRange;
 
     //________________________________________KEYS________________________________________
 
@@ -65,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
     //___________________________________PRIVATE VARIABLES________________________________
 
-    private float footStepsTimer = 10000;
+    private float footStepsTimer = 10000;   public float FootStepsTimer => footStepsTimer;
 
     private float footStepsUpdater = 0;
 
@@ -80,6 +109,8 @@ public class PlayerController : MonoBehaviour
     public static GameObject nearestKeyAvailable;
 
     private bool isRainingState = false;
+
+    private float footStepPosSwitch = 1;    public float FootStepPosSwitch => footStepPosSwitch;
 
 //___________________________________AWAKE AND START________________________________
     
@@ -138,14 +169,6 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        if(Input.anyKey)
-        {
-
-        }
-        else
-        {
-
-        }
         Vector3 move = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
         Vector3.Normalize(move);
         controller.Move(move * speed * Time.deltaTime);
@@ -166,13 +189,16 @@ public class PlayerController : MonoBehaviour
 
     private void NearestKey()
     {
-        if(Vector3.Distance(transform.position, key110.transform.position) >= Vector3.Distance(transform.position, key120.transform.position))
+        if (Input.GetAxis("Action1") == 0)
         {
-            nearestKeyAvailable = key120;
-        }
-        else
-        {
-            nearestKeyAvailable = key110;
+            if (Vector3.Distance(transform.position, key110.transform.position) >= Vector3.Distance(transform.position, key120.transform.position))
+            {
+                nearestKeyAvailable = key120;
+            }
+            else
+            {
+                nearestKeyAvailable = key110;
+            }
         }
     }
 
@@ -180,9 +206,22 @@ public class PlayerController : MonoBehaviour
     {
         if(footStepsTimer <= footStepDuration)
         {
-            if(footStepsUpdater >= 0.5f)
+            if(footStepsUpdater >= 0.3f)
             {
-                Instantiate(FootSteps, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+                if(footStepPosSwitch == 0.3f)
+                {
+                    footStepPosSwitch = -0.3f;
+                }
+                else
+                {
+                    footStepPosSwitch = 0.3f;
+                }
+
+                if (Input.GetAxis("Horizontal") > 0.1 || Input.GetAxis("Horizontal") < -0.1 && Input.GetAxis("Vertical") > 0.1 || Input.GetAxis("Vertical") < -0.1)
+                {
+                    Instantiate(FootSteps, new Vector3(transform.position.x, transform.position.y, transform.position.z), PlayerMesh.transform.rotation);
+                }
+                
                 footStepsUpdater = 0;
             }
             else

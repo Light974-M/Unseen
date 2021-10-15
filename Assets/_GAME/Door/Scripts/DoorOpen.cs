@@ -5,7 +5,10 @@ using UnityEngine;
 public class DoorOpen : MonoBehaviour
 {
 
-//_______________________________SERIALIZED VARIABLES_________________________________
+    //_______________________________SERIALIZED VARIABLES_________________________________
+
+    [Header("KEY LINKED____________________________________________________________________________________________________")]
+    [Header("")]
 
     [SerializeField]
     [Tooltip("the script of the key you want to linked with")]
@@ -15,11 +18,20 @@ public class DoorOpen : MonoBehaviour
     [Tooltip("the key that will be linked with")]
     private GameObject keyObject;
 
+    [Header("ANIMATION____________________________________________________________________________________________________")]
+    [Header("")]
+
     [SerializeField]
     [Tooltip("the animation you want for the door's opening")]
     private RuntimeAnimatorController Door;
 
-//___________________________________PRIVATE VARIABLES________________________________
+    [Header("INPUT RANGE____________________________________________________________________________________________________")]
+    [Header("")]
+
+    [SerializeField]
+    [Tooltip("the player values for range of door")]
+    private PlayerController PlayerOpen;
+    //___________________________________PRIVATE VARIABLES________________________________
 
     private Animator openAnim;
     private bool isDoorclosed = true;
@@ -28,6 +40,11 @@ public class DoorOpen : MonoBehaviour
 
     void Awake()
     {
+        if (PlayerOpen == null)
+        {
+            PlayerOpen = Transform.FindObjectOfType<PlayerController>();
+        }
+
         openAnim = GetComponent<Animator>();
     }
 
@@ -39,7 +56,7 @@ public class DoorOpen : MonoBehaviour
         {
             if (Input.GetAxis("Action1") == 1)
             {
-                if (Vector3.Distance(keyObject.transform.position, transform.position) <= 2)
+                if (Vector3.Distance(keyObject.transform.position, transform.position) <= PlayerOpen.DoorRange)
                 {
                     if (key.KeyState)
                     {
@@ -59,8 +76,6 @@ public class DoorOpen : MonoBehaviour
         openAnim.runtimeAnimatorController = null;
         openAnim.runtimeAnimatorController = Door;
         openAnim.enabled = true;
-        /*keyObject.transform.position = new Vector3(0, 100000, 0);
-        keyObject.GetComponent<MeshRenderer>.enabled = false*/
         keyObject.SetActive(false);
     }
 }
