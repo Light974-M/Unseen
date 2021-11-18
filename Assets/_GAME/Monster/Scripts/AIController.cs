@@ -19,6 +19,9 @@ public class AIController : MonoBehaviour
     [SerializeField, Tooltip("player that will be used for detections and positions")]
     private Transform player;
 
+    [SerializeField, Tooltip("zone used to calculate random Pos")]
+    private Transform randomPosZone;
+
     [SerializeField, Tooltip("Capsule collider of Player")]
     private CapsuleCollider capsuleCollider;
 
@@ -38,6 +41,12 @@ public class AIController : MonoBehaviour
 
     [SerializeField, Tooltip("number of ray")]
     private float rayNumber = 30f;
+
+    [SerializeField, Tooltip("min timer before update sreaching state")]
+    private int minTimerSearching = 5;
+
+    [SerializeField, Tooltip("max timer before update sreaching state")]
+    private int maxTimerSearching = 14;
 
     private float updateTimer = 0;
     private int randomTimer;
@@ -94,14 +103,21 @@ public class AIController : MonoBehaviour
 
     private void SearchPlayer()
     {
-        Vector3 randomPos = new Vector3(Random.Range(-27, 27), Random.Range(0, 22), Random.Range(-27, 27));
         isUpdatingSusPos = true;
 
         if (updateTimer == 0)
-            randomTimer = Random.Range(10, 24);
+            randomTimer = Random.Range(minTimerSearching, maxTimerSearching);
 
         if (updateTimer >= randomTimer)
         {
+            Vector3 APos = randomPosZone.Find("A").position;
+            Vector3 BPos = randomPosZone.Find("B").position;
+
+            float rX = Random.Range(APos.x, BPos.x);
+            float rY = Random.Range(APos.y, BPos.y);
+            float rZ = Random.Range(APos.z, BPos.z);
+            Vector3 randomPos = new Vector3(rX, rY, rZ);
+
             navMeshAgent.SetDestination(transform.position);
 
             if (updateTimer >= randomTimer + 4)
@@ -162,126 +178,6 @@ public class AIController : MonoBehaviour
 
     private void DrawRay()
     {
-
-        //float yFov = -yFOV;
-
-        //for (int i = 0; i < rayNumber / 4; i++)
-        //{
-        //    float xFov = -xFOV;
-
-        //    for (int j = 0; j < rayNumber; j++)
-        //    {
-        //        RaycastHit hit;
-        //        RaycastHit mirrorHit;
-        //        RaycastHit reflectedHit;
-        //        Vector3 playerVisionInit = new Vector3(transform.position.x, transform.position.y + 2.5f, transform.position.z);
-        //        Vector3 direction = transform.TransformDirection(new Vector3(xFov, yFov, 1).normalized);
-
-        //        bool isCollided = Physics.Raycast(playerVisionInit, direction, out hit, maxDistance);
-
-        //        if (Physics.Raycast(playerVisionInit, direction, out mirrorHit, maxDistance, 1 << 9))
-        //        {
-        //            float x = playerVisionInit.x + (2 * (hit.point.x - playerVisionInit.x));
-        //            float y = playerVisionInit.y + (2 * (hit.point.y - playerVisionInit.y));
-
-        //            if (Physics.Raycast(hit.point, (new Vector3(x, y, playerVisionInit.z) - hit.point).normalized, out reflectedHit))
-        //            {
-        //                if (reflectedHit.collider == capsuleCollider)
-        //                {
-        //                    Debug.DrawRay(hit.point, (new Vector3(x, y, playerVisionInit.z) - hit.point).normalized * reflectedHit.distance, Color.green);
-        //                    visibleDetectedPhase = true;
-        //                }
-        //                else
-        //                {
-        //                    Debug.DrawRay(hit.point, (new Vector3(x, y, playerVisionInit.z) - hit.point).normalized * reflectedHit.distance, Color.blue);
-        //                }
-
-        //            }
-
-        //        }
-        //        if (isCollided)
-        //        {
-        //            if (hit.collider == capsuleCollider)
-        //                Debug.DrawRay(playerVisionInit, direction * hit.distance, Color.green);
-        //            else
-        //                Debug.DrawRay(playerVisionInit, direction * hit.distance, Color.blue);
-        //        }
-        //        else
-        //            Debug.DrawRay(playerVisionInit, direction * maxDistance, Color.red);
-
-        //        xFov += 2 * xFOV / rayNumber;
-        //    }
-
-        //    yFov += 2 * yFOV / (rayNumber / 4);
-        //}
-
-
-
-
-        //if (i < rayNumber / 4)
-        //{
-        //    float xFov = -xFOV;
-        //    visibleDetectedPhase = false;
-
-        //    for (int j = 0; j < rayNumber; j++)
-        //    {
-        //        RaycastHit hit;
-        //        RaycastHit mirrorHit;
-        //        RaycastHit reflectedHit;
-        //        Vector3 playerVisionInit = new Vector3(transform.position.x, transform.position.y + 2.5f, transform.position.z);
-        //        Vector3 direction = transform.TransformDirection(new Vector3(xFov, yFov, 1).normalized);
-
-        //        bool isCollided = Physics.Raycast(playerVisionInit, direction, out hit, maxDistance);
-
-        //        if (Physics.Raycast(playerVisionInit, direction, out mirrorHit, maxDistance, 1 << 9))
-        //        {
-        //            float x = playerVisionInit.x + (2 * (hit.point.x - playerVisionInit.x));
-        //            float y = playerVisionInit.y + (2 * (hit.point.y - playerVisionInit.y));
-
-        //            if (Physics.Raycast(hit.point, (new Vector3(x, y, playerVisionInit.z) - hit.point).normalized, out reflectedHit))
-        //            {
-        //                if (reflectedHit.collider == capsuleCollider)
-        //                {
-        //                    Debug.DrawRay(hit.point, (new Vector3(x, y, playerVisionInit.z) - hit.point).normalized * reflectedHit.distance, Color.green);
-        //                    visibleDetectedPhase = true;
-        //                }
-        //                else
-        //                {
-        //                    Debug.DrawRay(hit.point, (new Vector3(x, y, playerVisionInit.z) - hit.point).normalized * reflectedHit.distance, Color.blue);
-        //                }
-
-        //            }
-
-        //        }
-
-        //        if (isCollided)
-        //        {
-        //            if (hit.collider == capsuleCollider)
-        //            {
-        //                Debug.DrawRay(playerVisionInit, direction * hit.distance, Color.green);
-        //                detectedPhase = true;
-        //            }
-        //            else
-        //                Debug.DrawRay(playerVisionInit, direction * hit.distance, Color.blue);
-        //        }
-        //        else
-        //            Debug.DrawRay(playerVisionInit, direction * maxDistance, Color.red);
-
-        //        xFov += 2 * xFOV / rayNumber;
-        //    }
-
-        //    yFov += 2 * yFOV / (rayNumber / 4);
-        //    i++;
-        //}
-        //else
-        //{
-        //    yFov = -yFOV;
-        //    i = 0;
-        //}
-
-
-
-
         float xFov = -xFOV;
         visibleDetectedPhase = false;
 
@@ -291,8 +187,9 @@ public class AIController : MonoBehaviour
         Vector3 playerVisionInit = new Vector3(transform.position.x, transform.position.y + 2.5f, transform.position.z);
         Vector3 playerMirrorVisionInit = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
         Vector3 direction = (player.position - playerVisionInit).normalized;
+        LayerMask layerMask = ~(1 << 8);
 
-        bool isCollided = Physics.Raycast(playerVisionInit, direction, out hit, maxDistance);
+        bool isCollided = Physics.Raycast(playerVisionInit, direction, out hit, maxDistance, layerMask);
 
         for (int j = 0; j < rayNumber; j++)
         {

@@ -240,7 +240,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            _isVisuallyDetectable = false;
+            if(!isVisible)
+                _isVisuallyDetectable = false;
         }
     }
 
@@ -257,8 +258,10 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.layer == 8)
         {
-            playerMat.material = PlayerMatInvisible;    
+            isVisible = true;
+            _isVisuallyDetectable = true;
 
+            playerMat.material = PlayerMatInvisible;
             camComponent.cullingMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Ground", "Water", "UI", "MessGround", "Rain", "Player");
         }
     }
@@ -267,8 +270,10 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.layer == 8)
         {
-            playerMat.material = PlayerMaterial;
+            isVisible = false;
+            _isVisuallyDetectable = false;
 
+            playerMat.material = PlayerMaterial;
             camComponent.cullingMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Ground", "Water", "UI", "MessGround", "Rain");
         }
     }

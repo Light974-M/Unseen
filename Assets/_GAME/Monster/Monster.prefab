@@ -743,6 +743,8 @@ MonoBehaviour:
   xFOV: 4
   yFOV: 1
   rayNumber: 50
+  minTimerSearching: 5
+  maxTimerSearching: 14
 --- !u!1 &8252877507831118223
 GameObject:
   m_ObjectHideFlags: 0
