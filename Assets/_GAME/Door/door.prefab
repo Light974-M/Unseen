@@ -15,7 +15,7 @@ GameObject:
   m_Name: door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3174023732115831531
@@ -48,6 +48,7 @@ MonoBehaviour:
   key: {fileID: 0}
   keyObject: {fileID: 0}
   Door: {fileID: 9100000, guid: 9d5ed8da135bec149aeae78a35fcdfc9, type: 2}
+  PlayerOpen: {fileID: 0}
 --- !u!95 &167576104281595435
 Animator:
   serializedVersion: 3
@@ -83,8 +84,8 @@ GameObject:
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2309590207855112419
 Transform:
@@ -175,7 +176,7 @@ GameObject:
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2568103798657478569

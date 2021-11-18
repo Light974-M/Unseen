@@ -108,15 +108,24 @@ public class PlayerController : MonoBehaviour
 
     public static GameObject nearestKeyAvailable;
 
-    private bool isRainingState = false;
+    private bool isVisible = false;
 
     private float footStepPosSwitch = 1;    public float FootStepPosSwitch => footStepPosSwitch;
+
+    private Renderer playerMat;
+    private Camera camComponent;
+
+    private bool _isVisuallyDetectable = false;   public bool IsVisuallyDetectable => _isVisuallyDetectable;
 
 //___________________________________AWAKE AND START________________________________
     
     void Awake()
     {
+        if (playerMat == null)
+            playerMat = PlayerMesh.GetComponent<Renderer>();
 
+        if (camComponent == null)
+            camComponent = cam.gameObject.GetComponent<Camera>();
     }
 
 //_______________________________________UPDATER____________________________________
@@ -149,8 +158,6 @@ public class PlayerController : MonoBehaviour
                 PlayerMesh.rotation = Quaternion.LookRotation(NextDir);
                 PlayerMesh.localEulerAngles += new Vector3(0, cam.eulerAngles.y, 0);
             }
-
-
         }
     }
 
@@ -206,6 +213,7 @@ public class PlayerController : MonoBehaviour
     {
         if(footStepsTimer <= footStepDuration)
         {
+            _isVisuallyDetectable = true;
             if(footStepsUpdater >= 0.3f)
             {
                 if(footStepPosSwitch == 0.3f)
@@ -230,6 +238,10 @@ public class PlayerController : MonoBehaviour
             }
             footStepsTimer += Time.deltaTime;
         }
+        else
+        {
+            _isVisuallyDetectable = false;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -245,9 +257,9 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.layer == 8)
         {
-            PlayerMesh.GetComponent<Renderer>().material = PlayerMatInvisible;    
+            playerMat.material = PlayerMatInvisible;    
 
-            cam.gameObject.GetComponent<Camera>().cullingMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Ground", "Water", "UI", "MessGround", "Rain", "Player");
+            camComponent.cullingMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Ground", "Water", "UI", "MessGround", "Rain", "Player");
         }
     }
 
@@ -255,9 +267,9 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.layer == 8)
         {
-            PlayerMesh.GetComponent<Renderer>().material = PlayerMaterial;
+            playerMat.material = PlayerMaterial;
 
-            cam.gameObject.GetComponent<Camera>().cullingMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Ground", "Water", "UI", "MessGround", "Rain");
+            camComponent.cullingMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Ground", "Water", "UI", "MessGround", "Rain");
         }
     }
 }

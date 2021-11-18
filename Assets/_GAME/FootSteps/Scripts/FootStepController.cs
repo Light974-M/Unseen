@@ -15,25 +15,29 @@ public class FootStepController : MonoBehaviour
 
     private float despawnUpdater = 255;
 
+    private Renderer footStepRenderer;
+    private Color color;
+
     void Awake()
     {
         PlayerFootSteps = Transform.FindObjectOfType<PlayerController>();
-
-        footStepMesh.transform.localPosition = new Vector3(PlayerFootSteps.FootStepPosSwitch, 0, 0);
+        footStepRenderer = footStepMesh.GetComponent<Renderer>();
         despawnUpdater = 255 / (PlayerFootSteps.FootStepsTimer * 100);
 
-        Color color = footStepMesh.GetComponent<Renderer>().material.color;
+        Vector3 footStepPos = new Vector3(PlayerFootSteps.FootStepPosSwitch, 0, 0);
+        color = footStepRenderer.material.color;
+
+        footStepMesh.transform.localPosition = footStepPos;
         color.a = despawnUpdater;
-        footStepMesh.GetComponent<Renderer>().material.color = color;
+        footStepRenderer.material.color = color;
     }
 
     void Update()
     {
-        if(footStepMesh.GetComponent<Renderer>().material.color.a >= 0.02f)
+        if(footStepRenderer.material.color.a >= 0.02f)
         {
-            Color color = footStepMesh.GetComponent<Renderer>().material.color;
             color.a = despawnUpdater;
-            footStepMesh.GetComponent<Renderer>().material.color = color;
+            footStepRenderer.material.color = color;
 
             despawnUpdater = despawnUpdater / 1.01f;
         }
