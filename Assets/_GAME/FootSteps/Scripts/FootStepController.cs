@@ -34,12 +34,12 @@ public class FootStepController : MonoBehaviour
 
     void Update()
     {
-        if(footStepRenderer.material.color.a >= 0.02f)
+        if(footStepRenderer.material.color.a >= 0.0001f)
         {
             color.a = despawnUpdater;
             footStepRenderer.material.color = color;
 
-            despawnUpdater = despawnUpdater / 1.01f;
+            despawnUpdater = despawnUpdater / 1.04f;
         }
         else
         {

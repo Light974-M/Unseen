@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -86,11 +87,8 @@ public class PlayerController : MonoBehaviour
 
     //________________________________________KEYS________________________________________
 
-    [SerializeField]
-    private GameObject key110;
-
-    [SerializeField]
-    private GameObject key120;
+    [SerializeField, Tooltip("keyList")] 
+    private List<GameObject> keyList;
 
     //___________________________________PRIVATE VARIABLES________________________________
 
@@ -117,6 +115,8 @@ public class PlayerController : MonoBehaviour
 
     private bool _isVisuallyDetectable = false;   public bool IsVisuallyDetectable => _isVisuallyDetectable;
 
+    private LevelManager levelManager;
+
 //___________________________________AWAKE AND START________________________________
     
     void Awake()
@@ -126,6 +126,9 @@ public class PlayerController : MonoBehaviour
 
         if (camComponent == null)
             camComponent = cam.gameObject.GetComponent<Camera>();
+
+        if (levelManager == null)
+            levelManager = FindObjectOfType<LevelManager>();
     }
 
 //_______________________________________UPDATER____________________________________
@@ -198,13 +201,12 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetAxis("Action1") == 0)
         {
-            if (Vector3.Distance(transform.position, key110.transform.position) >= Vector3.Distance(transform.position, key120.transform.position))
+            nearestKeyAvailable = keyList[0];
+
+            for (int i = 1; i < keyList.Count; i++)
             {
-                nearestKeyAvailable = key120;
-            }
-            else
-            {
-                nearestKeyAvailable = key110;
+                if (Vector3.Distance(transform.position, nearestKeyAvailable.transform.position) >= Vector3.Distance(transform.position, keyList[i].transform.position))
+                    nearestKeyAvailable = keyList[i]; 
             }
         }
     }
@@ -263,6 +265,11 @@ public class PlayerController : MonoBehaviour
 
             playerMat.material = PlayerMatInvisible;
             camComponent.cullingMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Ground", "Water", "UI", "MessGround", "Rain", "Player");
+        }
+
+        if (other.gameObject.layer == 11)
+        {
+            levelManager.IsWin = true;
         }
     }
 
