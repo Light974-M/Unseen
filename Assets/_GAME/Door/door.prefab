@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3174023732115831531}
   - component: {fileID: 4441276784194637588}
   - component: {fileID: 167576104281595435}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 5813053682582282202}
   - component: {fileID: 5210773234088524007}
   - component: {fileID: 3892752278294144391}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2568103798657478569}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

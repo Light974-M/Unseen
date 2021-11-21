@@ -675,6 +675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8252877507447825541}
   - component: {fileID: 8252877507447825542}
+  - component: {fileID: 8812612900726729604}
   - component: {fileID: 1787126233}
   m_Layer: 0
   m_Name: Monster
@@ -721,6 +722,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8812612900726729604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8252877507447825540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38a58a1371de77f4aaa97f70e25e6adc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surfaces: []
+  objectsToRotate: []
 --- !u!114 &1787126233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -737,6 +752,7 @@ MonoBehaviour:
   isSus: 0
   updateRandomPos: 0
   player: {fileID: 0}
+  randomPosZone: {fileID: 0}
   capsuleCollider: {fileID: 0}
   mirror: {fileID: 0}
   maxDistance: 50

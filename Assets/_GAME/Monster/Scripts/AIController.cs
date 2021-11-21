@@ -31,8 +31,6 @@ public class AIController : MonoBehaviour
     [SerializeField, Tooltip("max dstance the monster can see")]
     private float maxDistance = 10f;
 
-    private bool isUpdatingSusPos = false;
-
     [SerializeField, Tooltip("x fields of view")]
     private float xFOV = 30f;
 
@@ -55,6 +53,12 @@ public class AIController : MonoBehaviour
 
     private bool detectedPhase = false;
     private bool visibleDetectedPhase = false;
+    private bool setPlayerSusPos = true;
+    private Vector3 playerSusPos = Vector3.zero;
+    private int susTimer = 0;
+    private bool rangeSus = false;
+
+    private DoorOpen[] doorOpenList;
 
 
     int i = 0;
@@ -68,6 +72,8 @@ public class AIController : MonoBehaviour
 
         if (navMeshAgent == null)
             navMeshAgent = FindObjectOfType<NavMeshAgent>();
+
+        doorOpenList = FindObjectsOfType<DoorOpen>();
     }
 
     private void Update()
@@ -85,12 +91,16 @@ public class AIController : MonoBehaviour
             if (isSus)
                 SuspectPlayer();
             else
+            {
+                setPlayerSusPos = true;
+                susTimer = 0;
                 SearchPlayer();
+            }
         }
 
         if (updateRandomPos)
         {
-            updateTimer = randomTimer;
+            updateTimer = randomTimer + 4;
             updateRandomPos = false;
         }
     }
@@ -103,8 +113,6 @@ public class AIController : MonoBehaviour
 
     private void SearchPlayer()
     {
-        isUpdatingSusPos = true;
-
         if (updateTimer == 0)
             randomTimer = Random.Range(minTimerSearching, maxTimerSearching);
 
@@ -134,7 +142,6 @@ public class AIController : MonoBehaviour
 
     private void PlayerFounded()
     {
-        isUpdatingSusPos = true;
         navMeshAgent.speed = 4.6f;
         navMeshAgent.angularSpeed = 300f;
         navMeshAgent.acceleration = 40f;
@@ -145,13 +152,20 @@ public class AIController : MonoBehaviour
 
     private void SuspectPlayer()
     {
-        if (isUpdatingSusPos)
+        if (setPlayerSusPos)
         {
-            navMeshAgent.SetDestination(player.position);
-            navMeshAgent.updateRotation = true;
-
-            isUpdatingSusPos = false;
+            playerSusPos = player.position;
+            setPlayerSusPos = false;
         }
+
+        navMeshAgent.SetDestination(playerSusPos);
+        navMeshAgent.updateRotation = true;
+
+        if (!navMeshAgent.hasPath)
+            susTimer++;
+
+        if (susTimer >= 3)
+            isSus = false;
     }
 
     private void UpdateSearchingState()
@@ -174,6 +188,43 @@ public class AIController : MonoBehaviour
         {
             isFounded = true;
         }
+
+        foreach (DoorOpen door in doorOpenList)
+        {
+            if (door.UpdateNavMeshPhase)
+            {
+                isSus = true;
+            }
+        }
+
+        if (playerController.FootStepsTimer == 0)
+            isSus = true;
+
+        if (Vector3.Distance(player.position, transform.position) <= 16)
+        {
+            if (rangeSus && isSus)
+            {
+                rangeSus = false;
+                isSus = false;
+                setPlayerSusPos = true;
+            }
+
+            if (Input.GetAxis("Sprint") == 1)
+            {
+                isSus = true;
+                rangeSus = true;
+            }
+
+            if (Mathf.Abs(Input.GetAxis("Vertical")) >= 0.5f || Mathf.Abs(Input.GetAxis("Horizontal")) >= 0.5f)
+            {
+                isSus = true;
+                rangeSus = true;
+            }
+        }
+        else
+        {
+            rangeSus = false;
+        }
     }
 
     private void DrawRay()
@@ -194,27 +245,31 @@ public class AIController : MonoBehaviour
         for (int j = 0; j < rayNumber; j++)
         {
             Vector3 originalDir = transform.TransformDirection(new Vector3(xFov, 0, 1).normalized);
+            LayerMask mirrorMask = (1 << 9) | (1 << 13);
 
-            if (Physics.Raycast(playerMirrorVisionInit, originalDir, out mirrorHit, maxDistance, 1 << 9))
+            if (Physics.Raycast(playerMirrorVisionInit, originalDir, out mirrorHit, maxDistance, mirrorMask))
             {
                 float x = playerMirrorVisionInit.x + (2 * (mirrorHit.point.x - playerMirrorVisionInit.x));
                 float y = playerMirrorVisionInit.y + (2 * (mirrorHit.point.y - playerMirrorVisionInit.y));
 
-                if (Physics.Raycast(mirrorHit.point, (new Vector3(x, y, playerMirrorVisionInit.z) - mirrorHit.point).normalized, out reflectedHit))
+                if (mirrorHit.transform.gameObject.layer != 13)
                 {
-                    if (reflectedHit.collider == capsuleCollider)
+                    if (Physics.Raycast(mirrorHit.point, (new Vector3(x, y, playerMirrorVisionInit.z) - mirrorHit.point).normalized, out reflectedHit))
                     {
-                        Debug.DrawRay(mirrorHit.point, (new Vector3(x, y, playerMirrorVisionInit.z) - mirrorHit.point).normalized * reflectedHit.distance, Color.green);
-                        visibleDetectedPhase = true;
+                        if (reflectedHit.collider == capsuleCollider)
+                        {
+                            Debug.DrawRay(mirrorHit.point, (new Vector3(x, y, playerMirrorVisionInit.z) - mirrorHit.point).normalized * reflectedHit.distance, Color.green);
+                            visibleDetectedPhase = true;
+                        }
+                        else
+                        {
+                            Debug.DrawRay(mirrorHit.point, (new Vector3(x, y, playerMirrorVisionInit.z) - mirrorHit.point).normalized * reflectedHit.distance, Color.blue);
+                        }
+
                     }
                     else
-                    {
-                        Debug.DrawRay(mirrorHit.point, (new Vector3(x, y, playerMirrorVisionInit.z) - mirrorHit.point).normalized * reflectedHit.distance, Color.blue);
-                    }
-
+                        Debug.DrawRay(mirrorHit.point, (new Vector3(x, y, playerMirrorVisionInit.z) - mirrorHit.point).normalized * maxDistance, Color.red);
                 }
-                else
-                    Debug.DrawRay(mirrorHit.point, (new Vector3(x, y, playerMirrorVisionInit.z) - mirrorHit.point).normalized * maxDistance, Color.red);
 
             }
             xFov += 2 * xFOV / rayNumber;
