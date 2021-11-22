@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Grab : MonoBehaviour
 {
@@ -29,13 +30,14 @@ public class Grab : MonoBehaviour
     [Tooltip("the player values for range of grab")]
     private PlayerController PlayerGrab;
 
+    [SerializeField, Tooltip("text use to render key name")]
+    private Text keyText;
+
     //___________________________________PRIVATE VARIABLES________________________________
 
     private bool isGrabed = false;
     private bool isInputDown = false;
-
-    private bool _keyState = false;
-    public bool KeyState => _keyState;
+    private bool _keyState = false;     public bool KeyState => _keyState;
 
 //___________________________________AWAKE AND START________________________________
 
@@ -78,6 +80,10 @@ public class Grab : MonoBehaviour
                             _keyState = true;
                             transform.SetParent(PlayerMesh);
                             transform.localPosition = new Vector3(0, 0, 1.3f);
+
+                            keyText.text = gameObject.name;
+                            keyText.enabled = true;
+
                             isGrabed = true;
                             isInputDown = true;
                         }
@@ -103,6 +109,9 @@ public class Grab : MonoBehaviour
                     {
                         _keyState = false;
                         transform.SetParent(null);
+
+                        keyText.enabled = false;
+
                         isGrabed = false;
                         isInputDown = true;
                     }
