@@ -35,6 +35,10 @@ public class DoorOpen : MonoBehaviour
 
     private Animator openAnim;
     private bool isDoorclosed = true;
+    private bool _updateNavMeshPhase = false;    public bool UpdateNavMeshPhase => _updateNavMeshPhase;
+    private float updateNavMeshTimer = 0;
+
+    private NavigationBaker navigationBaker;
 
 //___________________________________AWAKE AND START________________________________
 
@@ -45,6 +49,7 @@ public class DoorOpen : MonoBehaviour
             PlayerOpen = Transform.FindObjectOfType<PlayerController>();
         }
 
+        navigationBaker = FindObjectOfType<NavigationBaker>();
         openAnim = GetComponent<Animator>();
     }
 
@@ -65,7 +70,21 @@ public class DoorOpen : MonoBehaviour
                 }
             }
         }
-        
+
+        if (_updateNavMeshPhase)
+        {
+            if (updateNavMeshTimer >= 2)
+            {
+                navigationBaker.UpdateNavMesh();
+                _updateNavMeshPhase = false;
+            }
+
+            updateNavMeshTimer += Time.deltaTime;
+        }
+        else
+        {
+            updateNavMeshTimer = 0;
+        }
     }
 
 //_______________________________________FUNCTIONS__________________________________
@@ -77,5 +96,6 @@ public class DoorOpen : MonoBehaviour
         openAnim.runtimeAnimatorController = Door;
         openAnim.enabled = true;
         keyObject.SetActive(false);
+        _updateNavMeshPhase = true;
     }
 }

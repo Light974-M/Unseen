@@ -7,6 +7,8 @@ public class AIController : MonoBehaviour
 {
     private NavMeshAgent navMeshAgent;
 
+    [Header("MANUAL UPDATE")]
+
     [SerializeField, Tooltip("is the player founded by AI")]
     private bool isFounded = false;
 
@@ -15,6 +17,9 @@ public class AIController : MonoBehaviour
 
     [SerializeField, Tooltip("update random pos of AI")]
     private bool updateRandomPos = false;
+
+    
+    [Header("GETTERS")]
 
     [SerializeField, Tooltip("player that will be used for detections and positions")]
     private Transform player;
@@ -28,25 +33,37 @@ public class AIController : MonoBehaviour
     [SerializeField, Tooltip("mirror used")]
     private Transform mirror;
 
+
+    [Header("VISION")]
+
     [SerializeField, Tooltip("max dstance the monster can see")]
     private float maxDistance = 10f;
 
-    private bool isUpdatingSusPos = false;
-
     [SerializeField, Tooltip("x fields of view")]
-    private float xFOV = 30f;
+    private float mirrorXFOV = 30f;
 
     [SerializeField, Tooltip("y fields of view")]
-    private float yFOV = 30f;
+    private float mirrorYFOV = 30f;
 
     [SerializeField, Tooltip("number of ray")]
-    private float rayNumber = 30f;
+    private float mirrorRayNumber = 30f;
+
+
+    [Header("SEARCHING")]
 
     [SerializeField, Tooltip("min timer before update sreaching state")]
     private int minTimerSearching = 5;
 
     [SerializeField, Tooltip("max timer before update sreaching state")]
     private int maxTimerSearching = 14;
+
+    [SerializeField, Tooltip("sphere were monster can easily ear player movements")]
+    private float nearSphereRadius = 16f;
+
+    [SerializeField, Tooltip("sphere were monster can fully detect player with sounds")]
+    private float deadSphereRadius = 8f;
+
+    //PRIVATE VARIABLES_________________________________________________________________
 
     private float updateTimer = 0;
     private int randomTimer;
@@ -55,7 +72,14 @@ public class AIController : MonoBehaviour
 
     private bool detectedPhase = false;
     private bool visibleDetectedPhase = false;
+    private bool setPlayerSusPos = true;
+    private Vector3 playerSusPos = Vector3.zero;
+    private int susTimer = 0;
+    private bool rangeSus = false;
+    private float susSprintTimer = 0;
+    private bool isAudiblyDetectable = false;
 
+    private DoorOpen[] doorOpenList;
 
     int i = 0;
     float yFov;
@@ -63,11 +87,13 @@ public class AIController : MonoBehaviour
 
     private void Awake()
     {
-        yFov = -yFOV;
+        yFov = -mirrorYFOV;
         playerController = FindObjectOfType<PlayerController>();
 
         if (navMeshAgent == null)
             navMeshAgent = FindObjectOfType<NavMeshAgent>();
+
+        doorOpenList = FindObjectsOfType<DoorOpen>();
     }
 
     private void Update()
@@ -85,12 +111,16 @@ public class AIController : MonoBehaviour
             if (isSus)
                 SuspectPlayer();
             else
+            {
+                setPlayerSusPos = true;
+                susTimer = 0;
                 SearchPlayer();
+            }
         }
 
         if (updateRandomPos)
         {
-            updateTimer = randomTimer;
+            updateTimer = randomTimer + 4;
             updateRandomPos = false;
         }
     }
@@ -103,8 +133,6 @@ public class AIController : MonoBehaviour
 
     private void SearchPlayer()
     {
-        isUpdatingSusPos = true;
-
         if (updateTimer == 0)
             randomTimer = Random.Range(minTimerSearching, maxTimerSearching);
 
@@ -134,7 +162,6 @@ public class AIController : MonoBehaviour
 
     private void PlayerFounded()
     {
-        isUpdatingSusPos = true;
         navMeshAgent.speed = 4.6f;
         navMeshAgent.angularSpeed = 300f;
         navMeshAgent.acceleration = 40f;
@@ -145,13 +172,20 @@ public class AIController : MonoBehaviour
 
     private void SuspectPlayer()
     {
-        if (isUpdatingSusPos)
+        if (setPlayerSusPos)
         {
-            navMeshAgent.SetDestination(player.position);
-            navMeshAgent.updateRotation = true;
-
-            isUpdatingSusPos = false;
+            playerSusPos = player.position;
+            setPlayerSusPos = false;
         }
+
+        navMeshAgent.SetDestination(playerSusPos);
+        navMeshAgent.updateRotation = true;
+
+        if (!navMeshAgent.hasPath)
+            susTimer++;
+
+        if (susTimer >= 3)
+            isSus = false;
     }
 
     private void UpdateSearchingState()
@@ -165,7 +199,7 @@ public class AIController : MonoBehaviour
             detectedPhase = false;
         }
 
-        if (!playerController.IsVisuallyDetectable)
+        if (!playerController.IsVisuallyDetectable && !isAudiblyDetectable)
         {
             isFounded = false;
         }
@@ -174,11 +208,70 @@ public class AIController : MonoBehaviour
         {
             isFounded = true;
         }
+
+        foreach (DoorOpen door in doorOpenList)
+        {
+            if (door.UpdateNavMeshPhase)
+            {
+                isSus = true;
+            }
+        }
+
+        if (playerController.FootStepsTimer == 0)
+            isSus = true;
+
+        if (rangeSus && isSus)
+        {
+            rangeSus = false;
+            setPlayerSusPos = true;
+        }
+
+        if (Vector3.Distance(player.position, transform.position) <= nearSphereRadius)
+        {
+            if (Input.GetAxis("Sprint") == 1 || Mathf.Abs(Input.GetAxis("Vertical")) >= 0.5f || Mathf.Abs(Input.GetAxis("Horizontal")) >= 0.5f)
+            {
+                isSus = true;
+                rangeSus = true;
+            }
+        }
+        else
+        {
+            rangeSus = false;
+        }
+
+        if (Vector3.Distance(player.position, transform.position) <= deadSphereRadius)
+        {
+            if (Input.GetAxis("Sprint") == 1 || Mathf.Abs(Input.GetAxis("Vertical")) >= 0.5f || Mathf.Abs(Input.GetAxis("Horizontal")) >= 0.5f)
+            {
+                isAudiblyDetectable = true;
+                isFounded = true;
+            }
+        }
+
+        if(!(Input.GetAxis("Sprint") == 1 || Mathf.Abs(Input.GetAxis("Vertical")) >= 0.5f || Mathf.Abs(Input.GetAxis("Horizontal")) >= 0.5f))
+        {
+            isAudiblyDetectable = false;
+        }
+
+        if (Input.GetAxis("Sprint") == 1)
+        {
+            susSprintTimer += Time.deltaTime;
+
+            if(susSprintTimer >= 4)
+            {
+                isSus = true;
+                rangeSus = true;
+            }
+        }
+        else
+        {
+            susSprintTimer = 0;
+        }
     }
 
     private void DrawRay()
     {
-        float xFov = -xFOV;
+        float xFov = -mirrorXFOV;
         visibleDetectedPhase = false;
 
         RaycastHit hit;
@@ -191,33 +284,37 @@ public class AIController : MonoBehaviour
 
         bool isCollided = Physics.Raycast(playerVisionInit, direction, out hit, maxDistance, layerMask);
 
-        for (int j = 0; j < rayNumber; j++)
+        for (int j = 0; j < mirrorRayNumber; j++)
         {
             Vector3 originalDir = transform.TransformDirection(new Vector3(xFov, 0, 1).normalized);
+            LayerMask mirrorMask = (1 << 9) | (1 << 13);
 
-            if (Physics.Raycast(playerMirrorVisionInit, originalDir, out mirrorHit, maxDistance, 1 << 9))
+            if (Physics.Raycast(playerMirrorVisionInit, originalDir, out mirrorHit, maxDistance, mirrorMask))
             {
                 float x = playerMirrorVisionInit.x + (2 * (mirrorHit.point.x - playerMirrorVisionInit.x));
                 float y = playerMirrorVisionInit.y + (2 * (mirrorHit.point.y - playerMirrorVisionInit.y));
 
-                if (Physics.Raycast(mirrorHit.point, (new Vector3(x, y, playerMirrorVisionInit.z) - mirrorHit.point).normalized, out reflectedHit))
+                if (mirrorHit.transform.gameObject.layer != 13)
                 {
-                    if (reflectedHit.collider == capsuleCollider)
+                    if (Physics.Raycast(mirrorHit.point, (new Vector3(x, y, playerMirrorVisionInit.z) - mirrorHit.point).normalized, out reflectedHit))
                     {
-                        Debug.DrawRay(mirrorHit.point, (new Vector3(x, y, playerMirrorVisionInit.z) - mirrorHit.point).normalized * reflectedHit.distance, Color.green);
-                        visibleDetectedPhase = true;
+                        if (reflectedHit.collider == capsuleCollider)
+                        {
+                            Debug.DrawRay(mirrorHit.point, (new Vector3(x, y, playerMirrorVisionInit.z) - mirrorHit.point).normalized * reflectedHit.distance, Color.green);
+                            visibleDetectedPhase = true;
+                        }
+                        else
+                        {
+                            Debug.DrawRay(mirrorHit.point, (new Vector3(x, y, playerMirrorVisionInit.z) - mirrorHit.point).normalized * reflectedHit.distance, Color.blue);
+                        }
+
                     }
                     else
-                    {
-                        Debug.DrawRay(mirrorHit.point, (new Vector3(x, y, playerMirrorVisionInit.z) - mirrorHit.point).normalized * reflectedHit.distance, Color.blue);
-                    }
-
+                        Debug.DrawRay(mirrorHit.point, (new Vector3(x, y, playerMirrorVisionInit.z) - mirrorHit.point).normalized * maxDistance, Color.red);
                 }
-                else
-                    Debug.DrawRay(mirrorHit.point, (new Vector3(x, y, playerMirrorVisionInit.z) - mirrorHit.point).normalized * maxDistance, Color.red);
 
             }
-            xFov += 2 * xFOV / rayNumber;
+            xFov += 2 * mirrorXFOV / mirrorRayNumber;
         }
 
         if (isCollided)

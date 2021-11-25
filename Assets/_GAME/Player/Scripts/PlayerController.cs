@@ -85,8 +85,6 @@ public class PlayerController : MonoBehaviour
     [Tooltip("the range min to open door")]
     private float _doorRange = 4;      public float DoorRange => _doorRange;
 
-    //________________________________________KEYS________________________________________
-
     [SerializeField, Tooltip("keyList")] 
     private List<GameObject> keyList;
 
