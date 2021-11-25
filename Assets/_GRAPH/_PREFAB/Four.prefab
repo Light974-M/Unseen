@@ -370,6 +370,7 @@ GameObject:
   - component: {fileID: 328280557956029767}
   - component: {fileID: 1610454318145954679}
   - component: {fileID: 4432460563867767568}
+  - component: {fileID: 1140257654}
   m_Layer: 0
   m_Name: pStove
   m_TagString: Untagged
@@ -440,3 +441,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1140257654
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9019182502829632719}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2762569, y: 0.8750014, z: 3.206368}
+  m_Center: {x: 0.001450986, y: -0.00000004470346, z: 1.603184}

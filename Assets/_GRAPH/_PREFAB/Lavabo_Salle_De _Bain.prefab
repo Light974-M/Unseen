@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8010148837074315540}
   - component: {fileID: 7497803946203158352}
   - component: {fileID: 5451326861215410731}
+  - component: {fileID: 7703374823570081283}
   m_Layer: 0
   m_Name: Meuble_Bathroom
   m_TagString: Untagged
@@ -81,6 +82,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7703374823570081283
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2227984253420339258}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.904557, y: 6.328712, z: 4.2281256}
+  m_Center: {x: 0.004393101, y: 0, z: 0.42377472}
 --- !u!1 &6422843443924630502
 GameObject:
   m_ObjectHideFlags: 0

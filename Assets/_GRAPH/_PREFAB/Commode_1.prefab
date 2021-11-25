@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2559555986438375868}
   - component: {fileID: 298608847784223261}
   - component: {fileID: 5605815079042407598}
+  - component: {fileID: 1412427959}
   m_Layer: 0
   m_Name: Tiroire_Commode
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028954937077443268}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.6631081, y: 1.2951995, z: 0.091848135}
+  m_LocalPosition: {x: 0.6631081, y: 1.2951995, z: -0.104}
   m_LocalScale: {x: 0.07473898, y: 0.07473898, z: 0.07473898}
   m_Children: []
   m_Father: {fileID: 2186514140231680869}
@@ -81,6 +82,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1412427959
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028954937077443268}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.753301, y: 19.52587, z: 5.8378797}
+  m_Center: {x: -5.62328, y: 9.155318, z: -2.77619}
 --- !u!1 &1518803421569784287
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +118,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518803421569784287}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.705894, y: 5.7399187, z: 1.8752569}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -129,6 +143,7 @@ GameObject:
   - component: {fileID: 8229933223978962848}
   - component: {fileID: 2855445412866049272}
   - component: {fileID: 2189999577887046289}
+  - component: {fileID: 1412427957}
   m_Layer: 0
   m_Name: Tiroire_Commode 2
   m_TagString: Untagged
@@ -199,6 +214,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1412427957
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133115452715515475}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.753301, y: 19.52587, z: 5.8378787}
+  m_Center: {x: -5.623259, y: 9.155318, z: -2.776192}
 --- !u!1 &2220511263788410076
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +238,7 @@ GameObject:
   - component: {fileID: 284019168564054451}
   - component: {fileID: 5350874202904203572}
   - component: {fileID: 6829199419145842605}
+  - component: {fileID: 1412427954}
   m_Layer: 0
   m_Name: Tiroire_Commode 5
   m_TagString: Untagged
@@ -225,7 +254,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2220511263788410076}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.027304888, y: 2.113411, z: 0.09129429}
+  m_LocalPosition: {x: 0.027304888, y: 2.113411, z: 0.023}
   m_LocalScale: {x: 0.07473898, y: 0.07473898, z: 0.07473898}
   m_Children: []
   m_Father: {fileID: 2186514140231680869}
@@ -280,6 +309,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1412427954
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2220511263788410076}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.684922, y: 9.687399, z: 4.9842105}
+  m_Center: {x: -5.589949, y: -4.2545176, z: -2.370239}
 --- !u!1 &2377572625246378638
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +333,7 @@ GameObject:
   - component: {fileID: 6332071369918593468}
   - component: {fileID: 2752596991827205462}
   - component: {fileID: 5392421009230510730}
+  - component: {fileID: 1412427947}
   m_Layer: 0
   m_Name: Commode
   m_TagString: Untagged
@@ -361,6 +404,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1412427947
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2377572625246378638}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.591721, y: 20.546242, z: 31.413599}
+  m_Center: {x: -1.0397699, y: -0.761467, z: 13.98306}
 --- !u!1 &4469127768112821775
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +428,7 @@ GameObject:
   - component: {fileID: 153773758222181529}
   - component: {fileID: 3965531958978450297}
   - component: {fileID: 621058890638890117}
+  - component: {fileID: 1412427955}
   m_Layer: 0
   m_Name: Tiroire_Commode 4
   m_TagString: Untagged
@@ -387,7 +444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4469127768112821775}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -0.70690703, y: 2.113411, z: 0.09129381}
+  m_LocalPosition: {x: -0.70690703, y: 2.113411, z: -0.315}
   m_LocalScale: {x: 0.07473898, y: 0.07473898, z: 0.07473898}
   m_Children: []
   m_Father: {fileID: 2186514140231680869}
@@ -442,6 +499,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1412427955
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4469127768112821775}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.684922, y: 9.687406, z: 4.984216}
+  m_Center: {x: -5.589975, y: -4.254537, z: -2.3702419}
 --- !u!1 &6894634580696898376
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +523,7 @@ GameObject:
   - component: {fileID: 864667372416780491}
   - component: {fileID: 9124752471381923244}
   - component: {fileID: 2107387346561355018}
+  - component: {fileID: 1412427956}
   m_Layer: 0
   m_Name: Tiroire_Commode 3
   m_TagString: Untagged
@@ -523,6 +594,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1412427956
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6894634580696898376}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.753301, y: 19.52587, z: 5.8378787}
+  m_Center: {x: -5.623285, y: 9.155318, z: -2.7761896}
 --- !u!1 &7958170738739455639
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +618,7 @@ GameObject:
   - component: {fileID: 5027228456702983746}
   - component: {fileID: 2266756169017808128}
   - component: {fileID: 5738397311889714116}
+  - component: {fileID: 1412427958}
   m_Layer: 0
   m_Name: Tiroire_Commode 1
   m_TagString: Untagged
@@ -604,3 +689,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1412427958
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7958170738739455639}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.753302, y: 19.525867, z: 5.8378787}
+  m_Center: {x: -5.6232834, y: 9.155331, z: -2.7761934}

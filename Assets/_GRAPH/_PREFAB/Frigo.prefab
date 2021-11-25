@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 7875994499300323065}
   - component: {fileID: 1679047122959950407}
   - component: {fileID: 3654153224919258403}
+  - component: {fileID: 351829343053770599}
   m_Layer: 0
   m_Name: mahinery
   m_TagString: Untagged
@@ -162,6 +163,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &351829343053770599
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742524300000715873}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.631823, y: 0.90472454, z: 2.1564333}
+  m_Center: {x: -0.00000008940699, y: 3.2415578e-14, z: 1.1405219}
 --- !u!1 &5006822413924604337
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 218351433732878012}
   - component: {fileID: 3794395856801063193}
   - component: {fileID: 1390646520520873427}
+  - component: {fileID: 1185666063}
   m_Layer: 0
   m_Name: "Biblioth\xE9que_2"
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 597973608931275782}
-  m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.6655095, y: -3.659298, z: -4.0939717}
   m_LocalScale: {x: 0.27699, y: 0.27699, z: 0.27699}
   m_Children: []
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1185666063
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597973608931275782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.3274336, y: 8.112451, z: 1.5214342}
+  m_Center: {x: -0.0000007152559, y: 4.043553, z: -0.0000014305118}

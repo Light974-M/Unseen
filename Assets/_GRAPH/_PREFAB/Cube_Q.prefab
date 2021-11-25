@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6055429835329261149}
   - component: {fileID: 7180689230578139640}
   - component: {fileID: 4918521808590058802}
+  - component: {fileID: 1388678719}
   m_Layer: 0
   m_Name: Cube_Q
   m_TagString: Untagged
@@ -25,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6864301629805040871}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 21.677855, y: 1.4704313, z: 1.313725}
   m_LocalScale: {x: 0.49369, y: 0.49369, z: 0.49369}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &7180689230578139640
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1388678719
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6864301629805040871}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4200063, y: 0.42000633, z: 0.42000628}
+  m_Center: {x: 0, y: 0, z: 0}

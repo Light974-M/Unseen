@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2698034249133779044}
-  m_LocalRotation: {x: -6.1232336e-17, y: -1.0922469e-24, z: 1, w: 0.00000013315805}
+  m_LocalRotation: {x: -0, y: -0.004026501, z: 0.9999919, w: 0.00000013224779}
   m_LocalPosition: {x: -0.04537201, y: 1.8579605, z: -0.026732922}
   m_LocalScale: {x: 0.012960163, y: 0.012960163, z: 0.011830133}
   m_Children: []
   m_Father: {fileID: 4976319242374529625}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.461, y: 0, z: 180}
 --- !u!33 &6354690193712339514
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 3524631636984039755}
   - component: {fileID: 1316523207123393684}
   - component: {fileID: 5537389813131941283}
+  - component: {fileID: 2583531832292960999}
   m_Layer: 0
   m_Name: Horloge
   m_TagString: Untagged
@@ -174,7 +175,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8290782892783832528, guid: b9fb3010103c5bf4187d7727f0d081e5, type: 3}
+  - {fileID: 2100000, guid: de6ec5ba52fc5e746a21c7c8e636d526, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -196,6 +197,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2583531832292960999
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6726112412816865664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7714162, y: 0.5089297, z: 2.4220965}
+  m_Center: {x: 0.005130024, y: -0.0014890886, z: 1.1602191}
 --- !u!1 &8943886631252888353
 GameObject:
   m_ObjectHideFlags: 0

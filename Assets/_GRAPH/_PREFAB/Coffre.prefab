@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3428785665491333117}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.1786966, y: -5.853341, z: -7.8679123}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 7477491135557344259}
   - component: {fileID: 3461934001506041250}
   - component: {fileID: 5426525273719370471}
+  - component: {fileID: 6152137747633380648}
   m_Layer: 0
   m_Name: Coffre 1
   m_TagString: Untagged
@@ -113,6 +114,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6152137747633380648
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6914191494834173805}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.996211, y: 1.0987339, z: 0.8025938}
+  m_Center: {x: 0.0000018477444, y: 0.000000029802337, z: 8.47033e-22}
 --- !u!1 &7858285028751860899
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +138,7 @@ GameObject:
   - component: {fileID: 6835442336931849196}
   - component: {fileID: 3504003531207609852}
   - component: {fileID: 1022452918737517061}
+  - component: {fileID: 5913098458945727265}
   m_Layer: 0
   m_Name: Coffre
   m_TagString: Untagged
@@ -194,3 +209,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5913098458945727265
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7858285028751860899}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.000001, y: 1.135012, z: 0.5617412}
+  m_Center: {x: -0.00000017881399, y: 0.5398452, z: 0.16953923}
