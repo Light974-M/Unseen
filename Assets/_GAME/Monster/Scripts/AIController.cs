@@ -162,7 +162,7 @@ public class AIController : MonoBehaviour
 
     private void PlayerFounded()
     {
-        navMeshAgent.speed = 4.6f;
+        navMeshAgent.speed = 3.6f;
         navMeshAgent.angularSpeed = 300f;
         navMeshAgent.acceleration = 40f;
 
