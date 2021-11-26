@@ -21,7 +21,7 @@ TagManager:
   - Win
   - Door
   - MirrorBlock
-  - 
+  - nonWalkable
   - 
   - 
   - 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7323447827845704964}
   - component: {fileID: 6104869867918106886}
   - component: {fileID: 8113895829316626724}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: "tiroire_Table_Entr\xE9e"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3061637169054785162}
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -0, y: 0.92643714, z: -0.23459423}
+  m_LocalPosition: {x: -0, y: 0.92643714, z: -0.624}
   m_LocalScale: {x: 1.2709, y: 1.2709, z: 1.2709}
   m_Children: []
   m_Father: {fileID: 9153005304951677345}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 7609453216520960704}
   - component: {fileID: 1805207361371522156}
   - component: {fileID: 8463325526600566859}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: "tiroire_Table_Entr\xE9e 1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9153005304951677345}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: "Table_Entr\xE9e"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 1484110459755717722}
   - component: {fileID: 7328025656326081218}
   - component: {fileID: 2041126565}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: "Table_Entr\xE9e"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

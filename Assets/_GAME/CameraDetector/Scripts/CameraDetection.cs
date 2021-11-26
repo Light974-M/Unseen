@@ -32,11 +32,15 @@ public class CameraDetection : MonoBehaviour
     [Tooltip("the player that will be detected in zone")]
     private Transform Player;
 
+    private float initcamAngleX;
+    private float initcamAngleZ;
+
 //___________________________________AWAKE AND START________________________________
 
     void Start()
     {
-        
+        initcamAngleX = camPosition.eulerAngles.x;
+        initcamAngleZ = camPosition.eulerAngles.z;
     }
 
 //_______________________________________UPDATER____________________________________
@@ -50,6 +54,9 @@ public class CameraDetection : MonoBehaviour
 
     private void CameraPlacement()
     {
+        camPosition.LookAt(Player.position);
+        camPosition.eulerAngles = new Vector3(initcamAngleX, camPosition.eulerAngles.y, initcamAngleZ);
+
         if (Player.position.x > A.position.x && Player.position.y > A.position.y && Player.position.z > A.position.z && Player.position.x < B.position.x && Player.position.y < B.position.y && Player.position.z < B.position.z)
         {
             Camera.main.transform.position = camPosition.position;

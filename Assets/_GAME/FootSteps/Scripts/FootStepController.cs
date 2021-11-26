@@ -24,7 +24,7 @@ public class FootStepController : MonoBehaviour
         footStepRenderer = footStepMesh.GetComponent<Renderer>();
         despawnUpdater = 255 / (PlayerFootSteps.FootStepsTimer * 100);
 
-        Vector3 footStepPos = new Vector3(PlayerFootSteps.FootStepPosSwitch, 0, 0);
+        Vector3 footStepPos = new Vector3(PlayerFootSteps.FootStepPosSwitch, -3.3f, 0);
         color = footStepRenderer.material.color;
 
         footStepMesh.transform.localPosition = footStepPos;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8460773962778282700}
   - component: {fileID: 4811373285135156585}
   - component: {fileID: 7287274770232111523}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Plafond_+_Sol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9088657377027575926}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.8889387, y: 0.000049591064, z: -0.536579}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 58.517418, y: 49.88379, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &4811373285135156585
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: afd15cb641860504e8f563e86957a962, type: 2}
+  - {fileID: 2100000, guid: 5fb6a19cdf0147045ad07ec620466741, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

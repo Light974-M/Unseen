@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isVisible = false;
 
-    private float footStepPosSwitch = 1;    public float FootStepPosSwitch => footStepPosSwitch;
+    private float footStepPosSwitch = 0.4f;    public float FootStepPosSwitch => footStepPosSwitch;
 
     private Renderer playerMat;
     private Camera camComponent;
@@ -262,7 +262,7 @@ public class PlayerController : MonoBehaviour
             _isVisuallyDetectable = true;
 
             playerMat.material = PlayerMatInvisible;
-            camComponent.cullingMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Ground", "Water", "UI", "MessGround", "Rain", "Player");
+            camComponent.cullingMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Ground", "Water", "UI", "MessGround", "Rain", "Player", "Mirror", "Door", "MirrorBlock", "nonWalkable");
         }
 
         if (other.gameObject.layer == 11)
@@ -279,7 +279,7 @@ public class PlayerController : MonoBehaviour
             _isVisuallyDetectable = false;
 
             playerMat.material = PlayerMaterial;
-            camComponent.cullingMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Ground", "Water", "UI", "MessGround", "Rain");
+            camComponent.cullingMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Ground", "Water", "UI", "MessGround", "Rain", "Mirror", "Door", "MirrorBlock", "nonWalkable");
         }
     }
 }

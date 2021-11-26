@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class AIController : MonoBehaviour
 {
@@ -241,14 +242,14 @@ public class AIController : MonoBehaviour
 
         if (Vector3.Distance(player.position, transform.position) <= deadSphereRadius)
         {
-            if (Input.GetAxis("Sprint") == 1 || Mathf.Abs(Input.GetAxis("Vertical")) >= 0.5f || Mathf.Abs(Input.GetAxis("Horizontal")) >= 0.5f)
+            if (Input.GetAxis("Sprint") == 1 || Mathf.Abs(Input.GetAxis("Vertical")) >= 0.8f || Mathf.Abs(Input.GetAxis("Horizontal")) >= 0.8f)
             {
                 isAudiblyDetectable = true;
                 isFounded = true;
             }
         }
 
-        if(!(Input.GetAxis("Sprint") == 1 || Mathf.Abs(Input.GetAxis("Vertical")) >= 0.5f || Mathf.Abs(Input.GetAxis("Horizontal")) >= 0.5f))
+        if(!(Input.GetAxis("Sprint") == 1 || Mathf.Abs(Input.GetAxis("Vertical")) >= 0.8f || Mathf.Abs(Input.GetAxis("Horizontal")) >= 0.8f))
         {
             isAudiblyDetectable = false;
         }
@@ -329,5 +330,13 @@ public class AIController : MonoBehaviour
         }
         else
             Debug.DrawRay(playerVisionInit, direction * maxDistance, Color.red);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            SceneManager.LoadScene("LooseScene");
+        }
     }
 }

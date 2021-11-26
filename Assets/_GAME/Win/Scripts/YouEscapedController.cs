@@ -16,7 +16,7 @@ public class YouEscapedController : MonoBehaviour
 
     private void Awake()
     {
-        text = GetComponent<Text>();
+        text = gameObject.GetComponent<Text>();
         color = Color.white;
     }
     void Update()
