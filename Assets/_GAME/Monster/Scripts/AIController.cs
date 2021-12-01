@@ -34,6 +34,8 @@ public class AIController : MonoBehaviour
     [SerializeField, Tooltip("mirror used")]
     private Transform mirror;
 
+    [SerializeField, Tooltip("animator")]
+    private Animator walkAnim;
 
     [Header("VISION")]
 
@@ -64,6 +66,9 @@ public class AIController : MonoBehaviour
     [SerializeField, Tooltip("sphere were monster can fully detect player with sounds")]
     private float deadSphereRadius = 8f;
 
+    [SerializeField, Tooltip("speed of searching and suspecting walk animation")]
+    private float walkAnimSpeed = 0.5f;
+
     //PRIVATE VARIABLES_________________________________________________________________
 
     private float updateTimer = 0;
@@ -76,6 +81,7 @@ public class AIController : MonoBehaviour
     private bool setPlayerSusPos = true;
     private Vector3 playerSusPos = Vector3.zero;
     private int susTimer = 0;
+    private int searchTimer = 0;
     private bool rangeSus = false;
     private float susSprintTimer = 0;
     private bool isAudiblyDetectable = false;
@@ -99,30 +105,39 @@ public class AIController : MonoBehaviour
 
     private void Update()
     {
-        if (isFounded)
+        if (!LevelManager.isPause)
         {
-            PlayerFounded();
+            navMeshAgent.isStopped = false;
+
+            if (isFounded)
+            {
+                PlayerFounded();
+            }
+            else
+            {
+                navMeshAgent.speed = 2f;
+                navMeshAgent.angularSpeed = 100f;
+                navMeshAgent.acceleration = 8f;
+
+                if (isSus)
+                    SuspectPlayer();
+                else
+                {
+                    setPlayerSusPos = true;
+                    susTimer = 0;
+                    SearchPlayer();
+                }
+            }
+
+            if (updateRandomPos)
+            {
+                updateTimer = randomTimer + 4;
+                updateRandomPos = false;
+            } 
         }
         else
         {
-            navMeshAgent.speed = 2f;
-            navMeshAgent.angularSpeed = 100f;
-            navMeshAgent.acceleration = 8f;
-
-            if (isSus)
-                SuspectPlayer();
-            else
-            {
-                setPlayerSusPos = true;
-                susTimer = 0;
-                SearchPlayer();
-            }
-        }
-
-        if (updateRandomPos)
-        {
-            updateTimer = randomTimer + 4;
-            updateRandomPos = false;
+            navMeshAgent.isStopped = true;
         }
     }
 
@@ -158,6 +173,22 @@ public class AIController : MonoBehaviour
             }
         }
 
+        if (!navMeshAgent.hasPath)
+            searchTimer++;
+        else
+            searchTimer = 0;
+
+        if (searchTimer >= 3)
+        {
+            walkAnim.enabled = false;
+            walkAnim.speed = walkAnimSpeed;
+        }
+        else
+        {
+            walkAnim.enabled = true;
+            walkAnim.speed = walkAnimSpeed;
+        }
+
         updateTimer += Time.deltaTime;
     }
 
@@ -169,6 +200,9 @@ public class AIController : MonoBehaviour
 
         navMeshAgent.SetDestination(player.position);
         navMeshAgent.updateRotation = true;
+
+        walkAnim.enabled = true;
+        walkAnim.speed = 2;
     }
 
     private void SuspectPlayer()
@@ -186,7 +220,17 @@ public class AIController : MonoBehaviour
             susTimer++;
 
         if (susTimer >= 3)
+        {
             isSus = false;
+
+            walkAnim.enabled = false;
+            walkAnim.speed = walkAnimSpeed;
+        }
+        else
+        {
+            walkAnim.enabled = true;
+            walkAnim.speed = walkAnimSpeed;
+        }
     }
 
     private void UpdateSearchingState()

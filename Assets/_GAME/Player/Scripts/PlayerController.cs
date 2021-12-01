@@ -133,17 +133,20 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        NearestKey();
+        if (!LevelManager.isPause)
+        {
+            NearestKey();
 
-        Sprint();
+            Sprint();
 
-        Move();
+            Move();
 
-        Jump();
+            Jump();
 
-        Rotation();
+            Rotation();
 
-        FootStepManager();
+            FootStepManager(); 
+        }
         
     }
 

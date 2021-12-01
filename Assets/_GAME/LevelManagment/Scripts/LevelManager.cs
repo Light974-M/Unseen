@@ -5,11 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private bool isPause = false;
+    public static bool isPause = false;
+
     private double gameTimer = 0;
 
     [SerializeField, Tooltip("should game load win screen ?")]
     private bool _isWin = false;
+
+    [SerializeField]
+    private GameObject PauseObjects;
+
+    private bool pauseKeyDown = false;
 
     public bool IsWin
     {
@@ -31,11 +37,28 @@ public class LevelManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+
+            PauseObjects.SetActive(true);
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+            PauseObjects.SetActive(false);
+        }
+
+        if (Input.GetAxis("Pause") == 1)
+        {
+            if(!pauseKeyDown)
+            {
+                isPause = !isPause;
+                pauseKeyDown = true;
+            }
+        }
+        else if (Input.GetAxis("Pause") == 0)
+        {
+            pauseKeyDown = false;
         }
     }
 
