@@ -261,7 +261,7 @@ public class PlayerController : MonoBehaviour
             isVisible = true;
             _isVisuallyDetectable = true;
 
-            playerMat.material = PlayerMatInvisible;
+            //playerMat.material = PlayerMatInvisible;
             camComponent.cullingMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Ground", "Water", "UI", "MessGround", "Rain", "Player", "Mirror", "Door", "MirrorBlock", "nonWalkable");
         }
 
@@ -278,7 +278,7 @@ public class PlayerController : MonoBehaviour
             isVisible = false;
             _isVisuallyDetectable = false;
 
-            playerMat.material = PlayerMaterial;
+            //playerMat.material = PlayerMaterial;
             camComponent.cullingMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Ground", "Water", "UI", "MessGround", "Rain", "Mirror", "Door", "MirrorBlock", "nonWalkable");
         }
     }
