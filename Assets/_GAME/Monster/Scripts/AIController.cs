@@ -115,7 +115,7 @@ public class AIController : MonoBehaviour
             }
             else
             {
-                navMeshAgent.speed = 2f;
+                navMeshAgent.speed = 1f;
                 navMeshAgent.angularSpeed = 100f;
                 navMeshAgent.acceleration = 8f;
 
@@ -187,6 +187,7 @@ public class AIController : MonoBehaviour
         {
             walkAnim.enabled = true;
             walkAnim.speed = walkAnimSpeed;
+            walkAnim.SetBool("isRun", false);
         }
 
         updateTimer += Time.deltaTime;
@@ -203,6 +204,7 @@ public class AIController : MonoBehaviour
 
         walkAnim.enabled = true;
         walkAnim.speed = 2;
+        walkAnim.SetBool("isRun", true);
     }
 
     private void SuspectPlayer()
@@ -230,6 +232,7 @@ public class AIController : MonoBehaviour
         {
             walkAnim.enabled = true;
             walkAnim.speed = walkAnimSpeed;
+            walkAnim.SetBool("isRun", false);
         }
     }
 
