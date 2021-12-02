@@ -29,8 +29,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap:
-        m_Texture: {fileID: 2800000, guid: 0a8fd1db0a1ad6e44a306b2a2465ea5e, type: 3}
-        m_Scale: {x: 0.6, y: 4.28}
+        m_Texture: {fileID: 2800000, guid: 959881f0f0dcb604aa7c4cd6f9ae8064, type: 3}
+        m_Scale: {x: 20, y: 20}
         m_Offset: {x: 0.09, y: 0}
     - _BentNormalMap:
         m_Texture: {fileID: 0}
@@ -65,15 +65,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 0a8fd1db0a1ad6e44a306b2a2465ea5e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 959881f0f0dcb604aa7c4cd6f9ae8064, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
-        m_Texture: {fileID: 2800000, guid: 12bd5f951812a7a41abe65abf9f08147, type: 3}
+        m_Texture: {fileID: 2800000, guid: 94e03178bc6689a46a9bfc32235c3d73, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: efa1e4bccbaff964fb76491d2e2cb3ff, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5f8168ba2d1fb7b499c7b251fa041861, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapOS:
@@ -166,14 +166,14 @@ Material:
     - _HeightPoMAmplitude: 2
     - _HeightTessAmplitude: 2
     - _HeightTessCenter: 0.5
-    - _InvTilingScale: 0.40983605
+    - _InvTilingScale: 0.05
     - _Ior: 1.5
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
     - _Metallic: 0
-    - _MetallicRemapMax: 1
+    - _MetallicRemapMax: 0
     - _MetallicRemapMin: 0
     - _NormalMapSpace: 0
     - _NormalScale: 0
@@ -188,7 +188,7 @@ Material:
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
     - _Smoothness: 0.5
-    - _SmoothnessRemapMax: 1
+    - _SmoothnessRemapMax: 0
     - _SmoothnessRemapMin: 0
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
