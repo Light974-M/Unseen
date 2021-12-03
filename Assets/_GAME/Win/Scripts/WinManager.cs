@@ -17,6 +17,9 @@ public class WinManager : MonoBehaviour
     private GameObject Credits;
 
     [SerializeField]
+    private GameObject font;
+
+    [SerializeField]
     private float timeBeforeTitle = 5;
 
     [SerializeField]
@@ -30,6 +33,7 @@ public class WinManager : MonoBehaviour
         {
             YouEscaped.SetActive(false);
             Title.SetActive(true);
+            font.SetActive(false);
         }
 
         if(timer >= timeBeforeCredits && timer <= timeBeforeCredits + 0.1f)
