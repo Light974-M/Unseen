@@ -88,6 +88,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("keyList")] 
     private List<GameObject> keyList;
 
+    [SerializeField, Tooltip("main audio player")]
+    private AudioSource mainAudio;
+
+    [SerializeField, Tooltip("key grab sound")]
+    private AudioClip keyGrab;
+
+    [SerializeField, Tooltip("door opening sound")]
+    private AudioClip doorOpen;
+
     //___________________________________PRIVATE VARIABLES________________________________
 
     private float footStepsTimer = 10000;   public float FootStepsTimer => footStepsTimer;
@@ -145,7 +154,7 @@ public class PlayerController : MonoBehaviour
 
             Rotation();
 
-            FootStepManager(); 
+            FootStepManager();
         }
         
     }
@@ -284,5 +293,15 @@ public class PlayerController : MonoBehaviour
             //playerMat.material = PlayerMaterial;
             camComponent.cullingMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Ground", "Water", "UI", "MessGround", "Rain", "Mirror", "Door", "MirrorBlock", "nonWalkable");
         }
+    }
+
+    public void KeyGrabSound()
+    {
+        mainAudio.PlayOneShot(keyGrab);
+    }
+
+    public void DoorOpenSound()
+    {
+        mainAudio.PlayOneShot(doorOpen);
     }
 }

@@ -97,5 +97,6 @@ public class DoorOpen : MonoBehaviour
         openAnim.enabled = true;
         keyObject.SetActive(false);
         _updateNavMeshPhase = true;
+        PlayerOpen.DoorOpenSound();
     }
 }

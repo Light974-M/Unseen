@@ -137,6 +137,7 @@ public class AIController : MonoBehaviour
         else
         {
             navMeshAgent.isStopped = true;
+            walkAnim.speed = 0;
         }
     }
 

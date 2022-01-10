@@ -33,6 +33,8 @@ public class Grab : MonoBehaviour
     [SerializeField, Tooltip("text use to render key name")]
     private Text keyText;
 
+    
+
     //___________________________________PRIVATE VARIABLES________________________________
 
     private bool isGrabed = false;
@@ -83,7 +85,7 @@ public class Grab : MonoBehaviour
 
                             keyText.text = gameObject.name;
                             keyText.enabled = true;
-
+                            PlayerGrab.KeyGrabSound();
                             isGrabed = true;
                             isInputDown = true;
                         }
