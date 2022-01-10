@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject _menu;
+
+    [SerializeField]
+    private GameObject _settings;
 
     private void Awake()
     {
@@ -18,16 +23,18 @@ public class ButtonManager : MonoBehaviour
 
     public void OnSettingsClick()
     {
+        _settings.SetActive(true);
+        _menu.SetActive(false);
+    }
 
+    public void OnReturnClick()
+    {
+        _menu.SetActive(true);
+        _settings.SetActive(false);
     }
 
     public void OnQuitClick()
     {
         Application.Quit();
-    }
-
-    public void OnReturnClick()
-    {
-
     }
 }
