@@ -90371,6 +90371,7 @@ GameObject:
   - component: {fileID: 5154075150960961158}
   - component: {fileID: 7329645312654456160}
   - component: {fileID: 95319732}
+  - component: {fileID: 7960191146955254038}
   m_Layer: 14
   m_Name: Horse
   m_TagString: Untagged
@@ -90378,6 +90379,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &7960191146955254038
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7960191146955254037}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ae67defc7a1cf5f4c8018d8ff5dafd11, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!23 &7960933311727636488
 MeshRenderer:
   m_ObjectHideFlags: 0
