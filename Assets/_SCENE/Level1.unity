@@ -1167,6 +1167,8 @@ MonoBehaviour:
   - {fileID: 591139090}
   - {fileID: 1416181787}
   - {fileID: 1872713406}
+  - {fileID: 1548328328}
+  - {fileID: 2056974431}
   frequencyMixer:
   - 0
   - 0
@@ -1184,6 +1186,8 @@ MonoBehaviour:
   - {x: 10, y: 15}
   - {x: 0, y: 2}
   - {x: 5, y: 20}
+  - {x: 3, y: 12}
+  - {x: 0, y: 1}
   volumeMixer:
   - {x: 0.7, y: 1}
   - {x: 0.7, y: 1}
@@ -1196,6 +1200,8 @@ MonoBehaviour:
   - {x: 0.2, y: 0.5}
   - {x: 0.1, y: 0.3}
   - {x: 0.2, y: 0.5}
+  - {x: 0.7, y: 1.2}
+  - {x: 0.7, y: 1.2}
   pitchMixer:
   - {x: 1, y: 1}
   - {x: 1, y: 1}
@@ -1207,6 +1213,8 @@ MonoBehaviour:
   - {x: 0.5, y: 1.2}
   - {x: 0.5, y: 1.2}
   - {x: 0.5, y: 1.2}
+  - {x: 0.8, y: 1.2}
+  - {x: 0.5, y: 1.3}
   - {x: 0.8, y: 1.2}
   allowCrossFade: 0
   disableFrequencyMixer: 1
@@ -12843,6 +12851,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Exit
       objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Range
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Intensity
+      value: 0.7615724
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_ShadowRadius
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_ColorTemperature
+      value: 2919
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Intensity
+      value: 9.570202
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: useVolumetric
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
 --- !u!4 &882373182 stripped
@@ -14519,7 +14559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4897854231435733263, guid: 2bb90863829629f489a99e70a087b560, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.28
+      value: -1.78
       objectReference: {fileID: 0}
     - target: {fileID: 4897854231435733263, guid: 2bb90863829629f489a99e70a087b560, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14527,7 +14567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4897854231435733263, guid: 2bb90863829629f489a99e70a087b560, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.14
+      value: 10.82
       objectReference: {fileID: 0}
     - target: {fileID: 4897854231435733263, guid: 2bb90863829629f489a99e70a087b560, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17929,11 +17969,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4924906323625901971, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Name
-      value: Saloon
+      value: Living Room
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Range
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Enabled
@@ -17941,7 +17981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Intensity
-      value: 23.873241
+      value: 0.30554122
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_AreaSize.x
@@ -17952,12 +17992,40 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_ShadowRadius
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_ColorTemperature
-      value: 3479
+      value: 2919
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684358512865363793, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.028
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684358512865363793, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.097
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684358512865363793, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.006
       objectReference: {fileID: 0}
     - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Intensity
-      value: 300
+      value: 3.8395443
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: useVolumetric
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
@@ -20549,11 +20617,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Range
-      value: 10
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Intensity
-      value: 2.5328796
+      value: 0.16873181
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_AreaSize.x
@@ -20564,12 +20648,40 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_ShadowRadius
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_ColorTemperature
-      value: 3479
+      value: 2919
       objectReference: {fileID: 0}
     - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Intensity
-      value: 31.829103
+      value: 2.1203465
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_ShapeRadius
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: useVolumetric
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_VolumetricDimmer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_VolumetricShadowDimmer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
@@ -21701,11 +21813,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Range
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Intensity
-      value: 23.873241
+      value: 0.10032708
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_AreaSize.x
@@ -21716,12 +21828,28 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_ShadowRadius
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_ColorTemperature
-      value: 3479
+      value: 2919
       objectReference: {fileID: 0}
     - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Intensity
-      value: 300
+      value: 1.2607473
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: useVolumetric
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
@@ -22667,11 +22795,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Range
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Intensity
-      value: 23.873241
+      value: 0.53355694
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_AreaSize.x
@@ -22682,12 +22810,40 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_ShadowRadius
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_ColorTemperature
-      value: 3479
+      value: 2919
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684358512865363793, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684358512865363793, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0008
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684358512865363793, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.026
       objectReference: {fileID: 0}
     - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Intensity
-      value: 300
+      value: 6.7048745
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: useVolumetric
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
@@ -23344,6 +23500,153 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 20.404875, y: 22.637383, z: 2.2180748}
   m_Center: {x: -10.202483, y: 0.00000333786, z: 1.1090145}
+--- !u!1 &1548328326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1548328327}
+  - component: {fileID: 1548328329}
+  - component: {fileID: 1548328328}
+  m_Layer: 0
+  m_Name: monsterSearchSong
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1548328327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548328326}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1941446599}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1548328328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548328326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36d8d93184a98346a4dad857db532de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 0}
+  randomizerList:
+  - {fileID: 8300000, guid: bab0c289f22f0934da851f0e4b556978, type: 3}
+  - {fileID: 8300000, guid: 01581c353bc1a314c87c525841f8d048, type: 3}
+  playOneSongATime: 0
+  useSmartRandomizer: 1
+  pickRandomClip: 0
+--- !u!82 &1548328329
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548328326}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!65 &1550661522
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26806,11 +27109,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Range
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Intensity
-      value: 0.90083385
+      value: 0.054723997
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_AreaSize.x
@@ -26821,12 +27124,28 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_ShadowRadius
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_ColorTemperature
-      value: 3479
+      value: 2919
       objectReference: {fileID: 0}
     - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Intensity
-      value: 11.320212
+      value: 0.68768203
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: useVolumetric
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
@@ -29562,11 +29881,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Range
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Intensity
-      value: 1.1529756
+      value: 0.054723985
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_AreaSize.x
@@ -29577,12 +29896,28 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_ShadowRadius
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_ColorTemperature
-      value: 3479
+      value: 2919
       objectReference: {fileID: 0}
     - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Intensity
-      value: 14.488718
+      value: 0.6876819
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: useVolumetric
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
@@ -30175,11 +30510,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Range
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Intensity
-      value: 6.0823493
+      value: 0.1003271
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_AreaSize.x
@@ -30190,12 +30525,28 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_ShadowRadius
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498459483821597908, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_ColorTemperature
-      value: 3479
+      value: 2919
       objectReference: {fileID: 0}
     - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
       propertyPath: m_Intensity
-      value: 76.43306
+      value: 1.2607476
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361330617061584673, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
+      propertyPath: useVolumetric
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3260d738c21dc4a9b32eb87721d888, type: 3}
@@ -31288,7 +31639,7 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 68.79973
+  m_Intensity: 2.335802
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -31402,7 +31753,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 68.79973
+  m_Intensity: 2.335802
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -33005,6 +33356,152 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10.519117, y: 40.352356, z: 10.519117}
   m_Center: {x: 0.0016386509, y: 20.173615, z: -0.004037857}
+--- !u!1 &2056974429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2056974430}
+  - component: {fileID: 2056974432}
+  - component: {fileID: 2056974431}
+  m_Layer: 0
+  m_Name: monsterFoundSong
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2056974430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056974429}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1941446599}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2056974431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056974429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36d8d93184a98346a4dad857db532de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 0}
+  randomizerList:
+  - {fileID: 8300000, guid: fed34a1a076edcc48b5bead101c3db59, type: 3}
+  playOneSongATime: 0
+  useSmartRandomizer: 1
+  pickRandomClip: 0
+--- !u!82 &2056974432
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056974429}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2061617515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71691,7 +72188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5144814920846606528, guid: d733067d064985848b52eac04726a22d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.83
+      value: -2.724
       objectReference: {fileID: 0}
     - target: {fileID: 5144814920846606528, guid: d733067d064985848b52eac04726a22d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -94524,9 +95021,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1327095908}
     - target: {fileID: 1787126233, guid: 1073856b66fe6ee49998912e5e97b240, type: 3}
+      propertyPath: susSong
+      value: 
+      objectReference: {fileID: 8300000, guid: d593f589909cde442b874906663b0142, type: 3}
+    - target: {fileID: 1787126233, guid: 1073856b66fe6ee49998912e5e97b240, type: 3}
       propertyPath: walkAnim
       value: 
       objectReference: {fileID: 1392812070}
+    - target: {fileID: 1787126233, guid: 1073856b66fe6ee49998912e5e97b240, type: 3}
+      propertyPath: foundSong
+      value: 
+      objectReference: {fileID: 2056974429}
+    - target: {fileID: 1787126233, guid: 1073856b66fe6ee49998912e5e97b240, type: 3}
+      propertyPath: mainSource
+      value: 
+      objectReference: {fileID: 148585943}
+    - target: {fileID: 1787126233, guid: 1073856b66fe6ee49998912e5e97b240, type: 3}
+      propertyPath: searchSong
+      value: 
+      objectReference: {fileID: 1548328326}
     - target: {fileID: 1787126233, guid: 1073856b66fe6ee49998912e5e97b240, type: 3}
       propertyPath: randomPosZone
       value: 

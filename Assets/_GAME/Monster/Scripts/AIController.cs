@@ -69,6 +69,20 @@ public class AIController : MonoBehaviour
     [SerializeField, Tooltip("speed of searching and suspecting walk animation")]
     private float walkAnimSpeed = 0.5f;
 
+    [SerializeField, Tooltip("audioRandomizer with search")]
+    private GameObject searchSong;
+
+    [SerializeField, Tooltip("audioRandomizer with found")]
+    private GameObject foundSong;
+
+    [SerializeField, Tooltip("main audioSource")]
+    private AudioSource mainSource;
+
+    [SerializeField, Tooltip("audioRandomizer with sus")]
+    private AudioClip susSong;
+
+
+
     //PRIVATE VARIABLES_________________________________________________________________
 
     private float updateTimer = 0;
@@ -149,6 +163,9 @@ public class AIController : MonoBehaviour
 
     private void SearchPlayer()
     {
+        searchSong.SetActive(true);
+        foundSong.SetActive(false);
+
         if (updateTimer == 0)
             randomTimer = Random.Range(minTimerSearching, maxTimerSearching);
 
@@ -195,6 +212,9 @@ public class AIController : MonoBehaviour
 
     private void PlayerFound()
     {
+        searchSong.SetActive(false);
+        foundSong.SetActive(true);
+
         navMeshAgent.speed = 3.6f;
         navMeshAgent.angularSpeed = 300f;
         navMeshAgent.acceleration = 40f;
@@ -212,6 +232,7 @@ public class AIController : MonoBehaviour
     {
         if (setPlayerSusPos)
         {
+            mainSource.PlayOneShot(susSong);
             playerSusPos = player.position;
             setPlayerSusPos = false;
         }
