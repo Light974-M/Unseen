@@ -197,13 +197,15 @@ public class AIController : MonoBehaviour
 
         if (searchTimer >= 3)
         {
-            walkAnim.enabled = false;
+            walkAnim.enabled = true;
             walkAnim.speed = walkAnimSpeed;
+            walkAnim.SetBool("isStand", true);
         }
         else
         {
             walkAnim.enabled = true;
             walkAnim.speed = walkAnimSpeed;
+            walkAnim.SetBool("isStand", false);
             walkAnim.SetBool("isRun", false);
         }
 
@@ -221,6 +223,7 @@ public class AIController : MonoBehaviour
 
         walkAnim.enabled = true;
         walkAnim.speed = 2;
+        walkAnim.SetBool("isStand", false);
         walkAnim.SetBool("isRun", true);
 
         navMeshAgent.SetDestination(player.position);
@@ -247,13 +250,15 @@ public class AIController : MonoBehaviour
         {
             isSus = false;
 
-            walkAnim.enabled = false;
+            walkAnim.enabled = true;
             walkAnim.speed = walkAnimSpeed;
+            walkAnim.SetBool("isStand", true);
         }
         else
         {
             walkAnim.enabled = true;
             walkAnim.speed = walkAnimSpeed;
+            walkAnim.SetBool("isStand", false);
             walkAnim.SetBool("isRun", false);
         }
     }
