@@ -7,12 +7,13 @@
       "dependencies": {}
     },
     "com.unity.ai.navigation.components": {
-      "version": "file:C:/Users/User/Downloads/com.unity.ai.navigation.components0fc6f532e4/com.unity.ai.navigation.components@0fc6f532e4",
+      "version": "1.0.0-exp.1",
       "depth": 0,
-      "source": "local",
+      "source": "registry",
       "dependencies": {
         "com.unity.modules.ai": "1.0.0"
-      }
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.collab-proxy": {
       "version": "1.9.0",
