@@ -88,7 +88,6 @@ public class AIController : MonoBehaviour
 
     private DoorOpen[] doorOpenList;
 
-    int i = 0;
     float yFov;
 
 
@@ -111,7 +110,7 @@ public class AIController : MonoBehaviour
 
             if (isFounded)
             {
-                PlayerFounded();
+                PlayerFound();
             }
             else
             {
@@ -193,18 +192,19 @@ public class AIController : MonoBehaviour
         updateTimer += Time.deltaTime;
     }
 
-    private void PlayerFounded()
+    private void PlayerFound()
     {
         navMeshAgent.speed = 3.6f;
         navMeshAgent.angularSpeed = 300f;
         navMeshAgent.acceleration = 40f;
 
-        navMeshAgent.SetDestination(player.position);
-        navMeshAgent.updateRotation = true;
-
         walkAnim.enabled = true;
         walkAnim.speed = 2;
         walkAnim.SetBool("isRun", true);
+
+        navMeshAgent.SetDestination(player.position);
+        navMeshAgent.updateRotation = true;
+
     }
 
     private void SuspectPlayer()
